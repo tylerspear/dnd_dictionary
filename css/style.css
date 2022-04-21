@@ -10,12 +10,38 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-img{
-  display: block;
-  margin: 0 auto;
+.container {
+  margin: 0 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  border: 1px solid #000;
 }
 
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+#index {
+  flex: 1 0 20%;
+}
+#display {
+flex: 1 0 80%;
+}
+
+#index-list {
+  list-style: none;
+  max-height: 100vh;
+  overflow: scroll;
+  padding: 0.5rem 1rem;
+}
+#index-list li {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.125rem;
+  margin-bottom: 0.3rem;
+}
