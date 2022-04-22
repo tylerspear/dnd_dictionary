@@ -1,9 +1,17 @@
 //DND API URL
 const url = `https://www.dnd5eapi.co/api/monsters`
+
 //UL to append monster names to
 const indexEl = document.getElementById('index-list')
+
 //monster data elements
 const monsterName = document.getElementById('monster-name')
+const monsterSize = document.getElementById('size')
+const monsterType = document.getElementById('type')
+const monsterAlign = document.getElementById('alignment')
+const monsterArmor = document.getElementById('armor-class')
+const monsterHP = document.getElementById('hit-points')
+const monsterHD = document.getElementById('hit-dice')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -42,5 +50,12 @@ function addClickListeners(){
 }
 
 function getMonster(obj){
+    console.log(obj)
     monsterName.textContent = obj.name
+    monsterSize.textContent = obj.size.toLowerCase()
+    monsterType.textContent = obj.type
+    monsterAlign.textContent = obj.alignment
+    monsterArmor.textContent = obj.armor_class
+    monsterHP.textContent = obj.hit_points
+    monsterHD.textContent = ` (${obj.hit_dice})`
 }

@@ -5,21 +5,82 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
-		<title>DND Dictionary</title>
-
+		<title>D&D Monster Wiki</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&family=Orelega+One&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="container">
-			<h1>D&D Monsters</h1>
+			<h1>D&D Monster <span>Wiki</span></h1>
 			<div class="row">
 				<section id="index" class="col">
 					<ul id="index-list"></ul>
 				</section>
 				<section id="display" class="col">
-					<h1 id="monster-name"></h1>
+					<section>
+						<h3 id="monster-name">Monster Name</h3>
+						<h6>Size/Type: <span id="size" class="attribute"></span> <span id="type" class="attribute"></span></h6>
+						<h6>Alignment: <span id="alignment" class="attribute"></span></h6>
+					</section>
+					
+					<section>
+						<h6>Armor Class: <span id="armor-class" class="attribute"></span></h6>
+						<h6>Hit Points: <span id="hit-points" class="attribute"></span><span id="hit-dice" class="attribute"></span></h6>
+						<h6>Speed:</h6>
+						<ul id="speed"></ul>
+					</section>
+					
+					<section>
+						<h6>Strength: <span id="strength" class="attribute"></span></h6>
+						<h6>Dexterity: <span id="dexterity" class="attribute"></span></h6>
+						<h6>Constitution: <span id="alignment" class="attribute"></span></h6>
+						<h6>Intelligence: <span id="intelligence" class="attribute"></span></h6>
+						<h6>Wisdom: <span id="wisdom" class="attribute"></span></h6>
+						<h6>Charisma: <span id="alignment" class="attribute"></span></h6>
+					</section>
+					
+					<section>
+						<h6>Proficiencies:</h6>
+						<ul id="proficiencies"></ul>
+						<h6>Senses:</h6>
+						<ul id="senses"></ul>
+						<h6>Languages: <span id="languages" class="attribute"></span></h6>
+						<h6>Challenge Rating: <span id="challenge-rating" class="attribute"></span></h6>
+						<h6>XP: <span id="xp" class="attribute"></span></h6>
+					</section>
+					
+					<section>
+						<h6>Special Abilities:</h6>
+						<ul id="special-abilities"></ul>
+					</section>
+					
+					<section>
+						<h6>Actions:</h6>
+						<ul id="actions"></ul>
+					</section>
+
+					<section>
+						<h6>Legendary Actions:</h6>
+						<ul id="legendary-actions"></ul>
+					</section>
+
+					<section>
+						<h6>Condition Immunities:</h6>
+						<ul id="condition-immunities"></ul>
+	
+						<h6>Damage Immunities:</h6>
+						<ul id="damage-immunities"></ul>
+	
+						<h6>Damage Resistances:</h6>
+						<ul id="damage-resistances"></ul>
+	
+						<h6>Damage Vulnerabilities:</h6>
+						<ul id="damage-vulnerabilities"></ul>
+					</section>
 				</section>
 			</div>
 		</div>
