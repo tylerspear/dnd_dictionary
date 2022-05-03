@@ -12,6 +12,8 @@ const monsterAlign = document.getElementById('alignment')
 const monsterArmor = document.getElementById('armor-class')
 const monsterHP = document.getElementById('hit-points')
 const monsterHD = document.getElementById('hit-dice')
+const monsterSpeed = document.getElementById('speed')
+const monsterProficiencies = document.getElementById('proficiencies')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -58,4 +60,18 @@ function getMonster(obj){
     monsterArmor.textContent = obj.armor_class
     monsterHP.textContent = obj.hit_points
     monsterHD.textContent = ` (${obj.hit_dice})`
+    monsterSpeed.textContent = ''
+    for(el in obj.speed){
+        let li = document.createElement('li')
+        li.textContent = `${el}: ${obj.speed[el]}`
+        monsterSpeed.appendChild(li)
+
+    }
+    monsterProficiencies.textContent = ''
+    obj.proficiencies.forEach(el => {
+        let li = document.createElement('li')
+        li.innerHTML = `${el.proficiency.name} +${el.value}`
+        monsterProficiencies.appendChild(li)
+    })
+
 }
