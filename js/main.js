@@ -67,6 +67,7 @@ function getMonster(obj){
         li.textContent = `${el}: ${obj.speed[el]}`
         monsterSpeed.appendChild(li)
     }
+    //update proficiencies by looping over array of objects
     monsterProficiencies.textContent = ''
     obj.proficiencies.forEach(el => {
         let li = document.createElement('li')
