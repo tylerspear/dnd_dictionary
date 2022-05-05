@@ -82,7 +82,7 @@ h1 span {
 
 #index-list {
   list-style: none;
-  max-height: 100vh;
+  max-height: 90vh;
   overflow: scroll;
   padding: 0.5rem 0;
 }

@@ -14,6 +14,7 @@ const monsterHP = document.getElementById('hit-points')
 const monsterHD = document.getElementById('hit-dice')
 const monsterSpeed = document.getElementById('speed')
 const monsterProficiencies = document.getElementById('proficiencies')
+const monsterSenses = document.getElementById('senses')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -65,7 +66,6 @@ function getMonster(obj){
         let li = document.createElement('li')
         li.textContent = `${el}: ${obj.speed[el]}`
         monsterSpeed.appendChild(li)
-
     }
     monsterProficiencies.textContent = ''
     obj.proficiencies.forEach(el => {
@@ -73,5 +73,11 @@ function getMonster(obj){
         li.innerHTML = `${el.proficiency.name} +${el.value}`
         monsterProficiencies.appendChild(li)
     })
+    for(el in obj.senses){
+        let li = document.createElement('li')
+        li.textContent = `${el}: ${obj.senses[el]}`
+        monsterSenses.appendChild(li)
+    }
+    
 
 }
