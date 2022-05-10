@@ -15,6 +15,8 @@ const monsterHD = document.getElementById('hit-dice')
 const monsterSpeed = document.getElementById('speed')
 const monsterProficiencies = document.getElementById('proficiencies')
 const monsterSenses = document.getElementById('senses')
+const monsterLangs = document.getElementById('languages')
+const monsterCR = document.getElementById('challenge-rating')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -37,10 +39,14 @@ fetch(url)
 
 
 function addClickListeners(){
+    //get all the li's in the monster list
     let listItems = document.querySelectorAll('.index-item')
 
+    //add a click listener to each
     listItems.forEach(el => el.addEventListener('click', () => {
+        //get the data-index attribute
         let index = el.getAttribute('data-index')
+        //pass that index into the API call
         fetch(`https://www.dnd5eapi.co/api/monsters/${index}`)
             .then(res => res.json())
             .then(data => {
@@ -62,23 +68,25 @@ function getMonster(obj){
     monsterHP.textContent = obj.hit_points
     monsterHD.textContent = ` (${obj.hit_dice})`
     monsterSpeed.textContent = ''
-    for(el in obj.speed){
-        let li = document.createElement('li')
-        li.textContent = `${el}: ${obj.speed[el]}`
-        monsterSpeed.appendChild(li)
-    }
+    createAttributeList(obj.speed, monsterSpeed)
     //update proficiencies by looping over array of objects
     monsterProficiencies.textContent = ''
     obj.proficiencies.forEach(el => {
         let li = document.createElement('li')
-        li.innerHTML = `${el.proficiency.name} +${el.value}`
+        li.textContent = `${el.proficiency.name} +${el.value}`
         monsterProficiencies.appendChild(li)
     })
-    for(el in obj.senses){
-        let li = document.createElement('li')
-        li.textContent = `${el}: ${obj.senses[el]}`
-        monsterSenses.appendChild(li)
-    }
-    
+    createAttributeList(obj.senses, monsterSenses)
+    monsterLangs.textContent = obj.languages
+    monsterCR.textContent = obj.challenge_rating
 
+}
+
+function createAttributeList(obj, parent){
+    parent.textContent = ''
+    for(el in obj){
+        let li = document.createElement('li')
+        li.textContent = `${el}: ${obj[el]}`
+        parent.appendChild(li)
+    }
 }
