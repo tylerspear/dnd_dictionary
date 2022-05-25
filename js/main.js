@@ -17,6 +17,7 @@ const monsterProficiencies = document.getElementById('proficiencies')
 const monsterSenses = document.getElementById('senses')
 const monsterLangs = document.getElementById('languages')
 const monsterCR = document.getElementById('challenge-rating')
+const monsterXP = document.getElementById('xp')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -79,6 +80,7 @@ function getMonster(obj){
     createAttributeList(obj.senses, monsterSenses)
     monsterLangs.textContent = obj.languages
     monsterCR.textContent = obj.challenge_rating
+    monsterXP.textContent = obj.xp
 
 }
 
