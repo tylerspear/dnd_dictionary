@@ -119,6 +119,7 @@ h1 span {
   list-style: none;
   color: var(--purple);
   font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 #display span {

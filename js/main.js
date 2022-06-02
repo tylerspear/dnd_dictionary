@@ -18,6 +18,8 @@ const monsterSenses = document.getElementById('senses')
 const monsterLangs = document.getElementById('languages')
 const monsterCR = document.getElementById('challenge-rating')
 const monsterXP = document.getElementById('xp')
+const monsterSpecials = document.getElementById('specials')
+const monsterActions = document.getElementById('actions')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -70,6 +72,7 @@ function getMonster(obj){
     monsterHD.textContent = ` (${obj.hit_dice})`
     monsterSpeed.textContent = ''
     createAttributeList(obj.speed, monsterSpeed)
+
     //update proficiencies by looping over array of objects
     monsterProficiencies.textContent = ''
     obj.proficiencies.forEach(el => {
@@ -81,6 +84,22 @@ function getMonster(obj){
     monsterLangs.textContent = obj.languages
     monsterCR.textContent = obj.challenge_rating
     monsterXP.textContent = obj.xp
+
+    //update specials by looping over array of objects
+    monsterSpecials.textContent = ''
+    obj.special_abilities.forEach(el => {
+        let li = document.createElement('li')
+        li.textContent = `${el.name}: ${el.desc}`
+        monsterSpecials.appendChild(li)
+    })
+
+    //update actions by looping over array of objects
+    monsterActions.textContent = ''
+    obj.actions.forEach(el => {
+        let li = document.createElement('li')
+        li.textContent = `${el.name}: ${el.desc}`
+        monsterActions.appendChild(li)
+    })
 
 }
 
