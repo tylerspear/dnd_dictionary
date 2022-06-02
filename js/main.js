@@ -20,6 +20,13 @@ const monsterCR = document.getElementById('challenge-rating')
 const monsterXP = document.getElementById('xp')
 const monsterSpecials = document.getElementById('specials')
 const monsterActions = document.getElementById('actions')
+const monsterLegendaries = document.getElementById('legendary-actions')
+const monsterStr = document.getElementById('strength')
+const monsterDex = document.getElementById('dexterity')
+const monsterCon = document.getElementById('constitution')
+const monsterInt = document.getElementById('intelligence')
+const monsterWis = document.getElementById('wisdom')
+const monsterChar = document.getElementById('charisma')
 
 fetch(url)
     .then(res => res.json()) // parse response as JSON
@@ -101,6 +108,20 @@ function getMonster(obj){
         monsterActions.appendChild(li)
     })
 
+    //update actions by looping over array of objects
+    monsterLegendaries.textContent = ''
+    obj.legendary_actions.forEach(el => {
+        let li = document.createElement('li')
+        li.textContent = `${el.name}: ${el.desc}`
+        monsterLegendaries.appendChild(li)
+    })
+
+    monsterStr.textContent = obj.strength
+    monsterDex.textContent = obj.dexterity
+    monsterCon.textContent = obj.constitution
+    monsterInt.textContent = obj.intelligence
+    monsterWis.textContent = obj.wisdom
+    monsterChar.textContent = obj.charisma
 }
 
 function createAttributeList(obj, parent){
