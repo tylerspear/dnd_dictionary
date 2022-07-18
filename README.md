@@ -3,6 +3,7 @@ As a longtime fan of the Dungeons & Dragons tabletop game, when I stumbled upon 
 
 
 ## Demo
+![gif demo](https://tylerspeardev.netlify.app/img/portfolio/full/dnd.gif)
 Live Demo at:
 https://dnd-dictionary.netlify.app
 ## Acknowledgements
